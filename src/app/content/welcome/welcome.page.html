@@ -1,37 +1,72 @@
-<ion-content id="welcome" class="bg-welcome">
-  <img src='../../../assets/img/welcome/welcome_right.svg' alt="Image with lines" class="right">
-  <img src='../../../assets/img/welcome/welcome_left.svg' alt="Image with lines" class="left">
+<ion-content id="welcome" class="bg-welcome" style="position: relative">
+  <img
+    src="../../../assets/img/welcome/welcome_right.svg"
+    alt="Image with lines"
+    class="right"
+  />
+  <img
+    src="../../../assets/img/welcome/welcome_left.svg"
+    alt="Image with lines"
+    class="left"
+  />
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-select class="select-language" (ionChange)="onSelectChange($event)" [(ngModel)]="language">
+        <ion-select
+          class="select-language"
+          (ionChange)="onSelectChange($event)"
+          [(ngModel)]="language"
+        >
           <ion-select-option value="es" selected>ES</ion-select-option>
           <ion-select-option value="en">EN</ion-select-option>
         </ion-select>
       </ion-col>
     </ion-row>
     <p class="text-center content-logo">
-      <img src='../../../assets/commons/Home Buyer Assistant Blue-Green copy.svg' alt="Image with lines" class="logo">
+      <img
+        src="../../../assets/commons/Home Buyer Assistant Blue-Green copy.svg"
+        alt="Image with lines"
+        class="logo"
+      />
     </p>
     <div class="simulate-canvas">
-      <img src='../../../assets/img/welcome/canvas.png' alt="Image Canvas" class="canvas">
+      <img
+        src="../../../assets/img/welcome/canvas.png"
+        alt="Image Canvas"
+        class="canvas"
+      />
       <ion-row class="row-welcome">
         <ion-col size="12" class="text-body-welcome">
           <h1 class="title1 title-welcome">{{ 'WELCOME' | translate }}</h1>
           <p class="text-center text-p">{{ 'WELCOME_.WELCOME' | translate }}</p>
-          <p class="text-center text-p">{{ 'WELCOME_.ABOUT_WE' | translate }}</p>
-          <p class="text-center text-p">{{ 'WELCOME_.OUR_WORK' | translate }}</p>
+          <p class="text-center text-p">
+            {{ 'WELCOME_.ABOUT_WE' | translate }}
+          </p>
+          <p class="text-center text-p">
+            {{ 'WELCOME_.OUR_WORK' | translate }}
+          </p>
         </ion-col>
-        <ion-col size="12">
-          <button type="button" (click)="showSignup()" class="my-color form-control button-start">{{ 'START' |
-            translate }}</button>
-        </ion-col>
+
         <!-- <ion-col size="12">
           <p class="text-center">{{ 'WELCOME_.CALL' | translate }}
             <span (click)="requestCallBack()" class="need-introduction">{{ 'CLICK_HERE' | translate }}</span>
           </p>
         </ion-col> -->
       </ion-row>
-    </div>      
+    </div>
+    <!-- <ion-col size="12">
+     
+    </ion-col>   -->
   </ion-grid>
+  <ion-row class="row-button-start">
+    <ion-col>
+      <button
+        type="button"
+        (click)="showSignup()"
+        class="my-color form-control button-start"
+      >
+        {{ 'START' | translate }}
+      </button>
+    </ion-col>
+  </ion-row>
 </ion-content>

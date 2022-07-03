@@ -1,67 +1,23 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
-
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" #email required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" #password required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="onLogin(email, password)" expand="block">Login</ion-button>
-      </ion-col>
-    </ion-row>
-
-  </form>
-  <ion-row>
-    <ion-col>
-      <ion-button (click)="signIn()" expand="block" color="primary">
-        Login with Facebook
-      </ion-button>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="onLoginGoogle()" expand="block" color="danger">Login with Google</ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-       <p>
-         <a routerLink="/register">Create an account</a>
-       </p>
-      </ion-col>
-      <ion-col>
-        <p>
-          <a routerLink="/forgot-password">Forgot your password?</a>
-        </p>
-       </ion-col>
-    </ion-row>
-</ion-content> -->
-
 <ion-content id="login" class="bg-signup no-scroll">
   <div class="container">
-    <div class="row">
+    <div class="row" style="background-color: white">
       <div class="col">
-        <ion-select class="select-language" (ionChange)="onSelectChange($event)" [(ngModel)]="language">
+        <ion-select
+          class="select-language"
+          (ionChange)="onSelectChange($event)"
+          [(ngModel)]="language"
+        >
           <ion-select-option value="es" selected>ES</ion-select-option>
           <ion-select-option value="en">EN</ion-select-option>
         </ion-select>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="background-color: white">
       <div class="col">
-        <img src="../../../assets/img/signup/003_with_logo.png" class="icon-logo" />
+        <img
+          src="../../../assets/img/signup/003_with_logo.png"
+          class="icon-logo"
+        />
       </div>
     </div>
     <div class="row content-body-dark">
@@ -75,113 +31,165 @@
       </div>
 
       <div class="row content-list">
-
         <ion-list>
           <form [formGroup]="form" novalidate>
             <!-- email -->
             <ion-item color="transparent" lines="full">
-              <ion-label position="floating">{{ 'ENTER_EMAIL' | translate }}</ion-label>
+              <ion-label position="floating"
+                >{{ 'ENTER_EMAIL' | translate }}</ion-label
+              >
               <ion-input formControlName="email" type="text"></ion-input>
             </ion-item>
 
-            <span class="error ion-padding"
-              *ngIf="f.email.touched && !submitted && f.email.errors?.required && !isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="f.email.touched && !submitted && f.email.errors?.required && !isSpanish"
+            >
               Email is required
             </span>
-            <span class="error ion-padding" *ngIf="submitted && f.email.errors?.required && !isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="submitted && f.email.errors?.required && !isSpanish"
+            >
               Email is required
             </span>
 
-            <span class="error ion-padding"
-              *ngIf="f.email.touched && !submitted && f.email.errors?.email && !isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="f.email.touched && !submitted && f.email.errors?.email && !isSpanish"
+            >
               Verify your email
             </span>
-            <span class="error ion-padding" *ngIf="submitted && f.email.errors?.email && !isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="submitted && f.email.errors?.email && !isSpanish"
+            >
               Verify your email
             </span>
 
-            <span class="error ion-padding"
-              *ngIf="f.email.touched && !submitted && f.email.errors?.required && isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="f.email.touched && !submitted && f.email.errors?.required && isSpanish"
+            >
               Correo requerido
             </span>
-            <span class="error ion-padding" *ngIf="submitted && f.email.errors?.required && isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="submitted && f.email.errors?.required && isSpanish"
+            >
               Correo requerido
             </span>
-            <span class="error ion-padding" *ngIf="f.email.touched && !submitted &&f.email.errors?.email && isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="f.email.touched && !submitted &&f.email.errors?.email && isSpanish"
+            >
               Verifique su correo electrónico
             </span>
-            <span class="error ion-padding" *ngIf="submitted &&f.email.errors?.email && isSpanish">
+            <span
+              class="error ion-padding"
+              *ngIf="submitted &&f.email.errors?.email && isSpanish"
+            >
               Verifique su correo electrónico
             </span>
 
             <!-- password -->
-        <ion-item color="transparent" lines="full">
-          <ion-label position="floating">{{ 'ENTER_PASSWORD' | translate }}</ion-label>
+            <ion-item color="transparent" lines="full">
+              <ion-label position="floating"
+                >{{ 'ENTER_PASSWORD' | translate }}</ion-label
+              >
 
-          <ion-row style="width: 100%;">
-            <ion-col size="10">
-              <ion-input formControlName="password" [type]="passwordType" #password></ion-input>
-            </ion-col>
-            <ion-col size="2">
-              <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-item>
+              <ion-row style="width: 100%">
+                <ion-col size="10">
+                  <ion-input
+                    formControlName="password"
+                    [type]="passwordType"
+                    #password
+                  ></ion-input>
+                </ion-col>
+                <ion-col size="2">
+                  <ion-icon
+                    item-end
+                    [name]="passwordIcon"
+                    class="passwordIcon"
+                    (click)="hideShowPassword()"
+                  ></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-item>
 
-        <span class="error ion-padding"
-          *ngIf="f.password.touched && !submitted && f.password.errors?.required && !isSpanish">
-          Password is required
-        </span>
-        <span class="error ion-padding" *ngIf="submitted && f.password.errors?.required && !isSpanish">
-          Password is required
-        </span>
+            <span
+              class="error ion-padding"
+              *ngIf="f.password.touched && !submitted && f.password.errors?.required && !isSpanish"
+            >
+              Password is required
+            </span>
+            <span
+              class="error ion-padding"
+              *ngIf="submitted && f.password.errors?.required && !isSpanish"
+            >
+              Password is required
+            </span>
 
-        <span class="error ion-padding"
-          *ngIf="f.password.touched && !submitted && f.password.errors?.minlength && !isSpanish">
-          Password must be more than 6 characters
-        </span>
-        <span class="error ion-padding" *ngIf="submitted && f.password.errors?.minlength && !isSpanish">
-          La contraseña debe tener más de 6 caracteres
-        </span>
+            <span
+              class="error ion-padding"
+              *ngIf="f.password.touched && !submitted && f.password.errors?.minlength && !isSpanish"
+            >
+              Password must be more than 6 characters
+            </span>
+            <span
+              class="error ion-padding"
+              *ngIf="submitted && f.password.errors?.minlength && !isSpanish"
+            >
+              La contraseña debe tener más de 6 caracteres
+            </span>
 
-        <span class="error ion-padding"
-          *ngIf="f.password.touched && !submitted && f.password.errors?.required && isSpanish">
-          Campo requerido
-        </span>
-        <span class="error ion-padding" *ngIf="submitted && f.password.errors?.required && isSpanish">
-          Campo requerido
-        </span>
-
+            <span
+              class="error ion-padding"
+              *ngIf="f.password.touched && !submitted && f.password.errors?.required && isSpanish"
+            >
+              Campo requerido
+            </span>
+            <span
+              class="error ion-padding"
+              *ngIf="submitted && f.password.errors?.required && isSpanish"
+            >
+              Campo requerido
+            </span>
           </form>
           <br />
           <p class="text-center">
-            <a routerLink="/forgot-password" class="vincle-no-style a-forgot-password">
-              {{ 'FORGOT_PASSWORD' | translate }}</a>
+            <a
+              routerLink="/forgot-password"
+              class="vincle-no-style a-forgot-password"
+            >
+              {{ 'FORGOT_PASSWORD' | translate }}</a
+            >
           </p>
         </ion-list>
       </div>
-      <div class="row boton-signup">
-        <button type="button" class="my-color form-control" (click)="onLogin()">{{ 'LOGIN' | translate
-          }}</button>
-      </div>
-      <!-- <div class="content-line">
-        <span class="or">{{ 'OR' | translate }}</span>
-        <div class="line"></div>
-      </div> -->
+    </div>
+    <!-- content body dark-->
 
-      <!-- <div class="socials-icons">
-        <div [class]="classFacebook">
-          <img src="../../../assets/icon/FB-icon.png" (click)="signIn()" class="icon-facebook"/>
-        </div>
-        <div [class]="classGoogle">
-          <img src="../../../assets/icon/Google-icon.png" (click)="onLoginGoogle()" class="icon-google"/>
-        </div>
-      </div> -->
-      <div class="last-text">
-        <p class="text-center last-p">{{ 'NOT_ALREADY_ACOUNT' | translate }}
-          <a routerLink="/register" class="text-bold vincle-no-style">{{ 'REGISTER' | translate }}</a>
-        </p>
+    <div id="content-loading" *ngIf="loading">
+      <div id="loading" style="margin-left: 25%">
+        <img src="assets/loading.svg" />
       </div>
     </div>
+    
+  </div>
+
+  <!-- container -->
+  <div class="row boton-signup row-button-login">
+    <button type="button" class="my-color form-control" (click)="onLogin()">
+      {{ 'LOGIN' | translate }}
+    </button>
+  </div>
+  <div class="last-text row-last-text">
+    <p class="text-center last-p">
+      {{ 'NOT_ALREADY_ACOUNT' | translate }}
+      <a routerLink="/register" class="text-bold vincle-no-style"
+        >{{ 'REGISTER' | translate }}</a
+      >
+    </p>
   </div>
 </ion-content>

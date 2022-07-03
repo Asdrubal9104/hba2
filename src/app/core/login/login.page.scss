@@ -1,167 +1,181 @@
-ion-content#login{
-    // --background: #fff url('../../../assets/img/signup/002_with_logo.png') no-repeat center top / cover;
-    // margin-top: 50px;
-    // width: 100%;
-    // height: auto;
-    .a-forgot-password{
-        font-size: 20px;
-        margin-top: 15px;
-        color: #0D9EBA;
-    }
-    .last-text{
-        padding-top: 15px;
-        background-color: #f5f7f9;
-    }
-    .vincle-no-style{
-        color: #0D9EBA;
-    }
-    .container{
-        padding: 0;
-        margin-top: 15px;
-        .content-image{
-            float: right;
-        }
-        .icon-logo{
-            float: right;
-        }
-        .select-language{
-            margin-right: 10px;
-        }
-        .content-body-dark{
-            margin-top: 10px;
-            position: relative;
-            height: 200px;
-            background-color: #f5f7f9;
-            .content-icon{
-                left: 30px;
-                border: 2px solid #0D9EBA;
-                position: absolute;
-                top: -25px;
-                padding: 25px;
-                border-radius: 50%;
-                background-color: white;
-                width: 50px;
-                height: auto;
-            }
-        }
-        .content-form{
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 30px;
-        }
-    }
-  
-    .icon-profile{
-        position: absolute;
-        top: 10px;
-        left: 15px;
-    }
-    .title1.signup{
-        margin-top: 10px;
-    }
-    ion-list{
-        ion-item{
-            width: 95%;
-            margin: auto;
-        }
-    }
-    .content-list{
-        padding-right: 0;
-        margin-right: 0;
-    }
-    .row.boton-signup{
-        margin: auto;
-        width: 95%;
-        background-color: #f5f7f9;
-    }
-    ion-list{
-        background-color: #f5f7f9;
-        ion-item .content-item{
-            background-color: #f5f7f9;
-            width: 100%;
-            .item-inner{
-                padding-right: 0 !important;
-            }
-            .item-native{
-                padding-left: 0 !important;
-                padding-inline-start: 0 !important;
-            }
-        }
-        ion-item {
-            --padding-end: 0px;
-            --inner-padding-end: 0px;
-            border-bottom: 1px solid grey;
-        }
-    }
+#login {
+  position: relative;
+  .a-forgot-password {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #0d9eba;
   }
-  .content-line{
-      width: 100%;
-      background-color: #f5f7f9;
-      position: relative;
-      span.or{
-          position: absolute;
-          background-color: #f5f7f9;
-          top: 10px;
-          left: 46%;
-          padding-left: 7px;
-          padding-right: 7px;
-      }
-  }
-  .line {
-    border-bottom: 1px solid grey;
-    width: 87%;
-    margin: auto;
-    padding-top: 20px;
-    background-color: #f5f7f9;  
-  }
-  .no-scroll{
-    overflow: hidden;
-  }
-  .custom-login-label input[type]{
-    margin-left: 20px;
-  }
-  .custom-login-label i {
-    position: absolute;
-    bottom: 12px;
-  }
-  .socials-icons{
-    display: inherit;
-    justify-content: center;
-    padding-top: 20px;
+  .last-text {
+    padding-top: 15px;
     background-color: #f5f7f9;
   }
-  
-  .last-text{
-      background-color: #f5f7f9;
+  .vincle-no-style {
+    color: #0d9eba;
   }
-  
-  .socials-icons{
-    div.circle-content{
-        margin: 10px;
+  .container {
+    padding: 0;
+    margin-top: 15px;
+    height: 98vh;
+    background-color: #f5f7f9;
+    .content-image {
+      float: right;
+    }
+    .icon-logo {
+      float: right;
+    }
+    .select-language {
+      margin-right: 10px;
+    }
+    .content-body-dark {
+      margin-top: 10px;
+      position: relative;
+      //   height: 200px;
+      background-color: #f5f7f9;
+
+      .content-icon {
+        left: 30px;
+        border: 2px solid #0d9eba;
+        position: absolute;
+        top: -25px;
+        padding: 25px;
+        border-radius: 50%;
         background-color: white;
         width: 50px;
-        height: 50px;
-        box-shadow: 0 .05rem 0.2rem rgba(0,0,0,0.8);
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
-        &.active{
-            box-shadow: inset 0px 0px 10px rgba(90, 90, 90, 0.9);
-        }
-        img.icon-facebook{
-            margin-left: 35%;
-            margin-top: 20%;
-            width: 17px;
-            height: auto;
-        }
-        img.icon-google{
-            margin-left: 25%;
-            margin-top: 25%;
-            width: 25px;
-            height: auto;           
-        }
+        height: auto;
+      }
+    }
+    .content-form {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
     }
   }
-  
+
+  .icon-profile {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+  .title1.signup {
+    margin-top: 10px;
+  }
+  ion-list {
+    ion-item {
+      width: 95%;
+      margin: auto;
+    }
+  }
+  .content-list {
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .row.boton-signup {
+    margin: auto;
+    width: 95%;
+    background-color: #f5f7f9;
+  }
+  ion-list {
+    background-color: #f5f7f9;
+    ion-item .content-item {
+      background-color: #f5f7f9;
+      width: 100%;
+      .item-inner {
+        padding-right: 0 !important;
+      }
+      .item-native {
+        padding-left: 0 !important;
+        padding-inline-start: 0 !important;
+      }
+    }
+    ion-item {
+      --padding-end: 0px;
+      --inner-padding-end: 0px;
+      border-bottom: 1px solid grey;
+    }
+  }
+}
+.content-line {
+  width: 100%;
+  background-color: #f5f7f9;
+  position: relative;
+  span.or {
+    position: absolute;
+    background-color: #f5f7f9;
+    top: 10px;
+    left: 46%;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+.line {
+  border-bottom: 1px solid grey;
+  width: 87%;
+  margin: auto;
+  padding-top: 20px;
+  background-color: #f5f7f9;
+}
+.no-scroll {
+  overflow: hidden;
+}
+.custom-login-label input[type] {
+  margin-left: 20px;
+}
+.custom-login-label i {
+  position: absolute;
+  bottom: 12px;
+}
+.socials-icons {
+  display: inherit;
+  justify-content: center;
+  padding-top: 20px;
+  background-color: #f5f7f9;
+}
+
+.last-text {
+  background-color: #f5f7f9;
+}
+
+.socials-icons {
+  div.circle-content {
+    margin: 10px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    &.active {
+      box-shadow: inset 0px 0px 10px rgba(90, 90, 90, 0.9);
+    }
+    img.icon-facebook {
+      margin-left: 35%;
+      margin-top: 20%;
+      width: 17px;
+      height: auto;
+    }
+    img.icon-google {
+      margin-left: 25%;
+      margin-top: 25%;
+      width: 25px;
+      height: auto;
+    }
+  }
+}
+
+.row-button-login {
+  position: absolute;
+  bottom: 50px;
+  width: 96%;
+  left: 2%;
+  padding-bottom: 20px;
+}
+
+.row-last-text {
+  position: absolute;
+  bottom: 10px;
+  width: 96%;
+  left: 2%;
+}

@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -26,129 +26,137 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 * {
-    font-family: 'SF-Pro-Display-Regular';
-    font-size: 16px;
+  font-family: "SF-Pro-Display-Regular";
+  font-size: 16px;
 }
 
 .title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .select-language {
-    width: fit-content;
-    float: right;
+  width: fit-content;
+  float: right;
 }
 
 @font-face {
-    font-family: 'SF-PRO-Display-Black';
-    src: local('Display-Black'), url('./assets/fonts/SF-Pro-Display-Black.otf') format('truetype');
+  font-family: "SF-PRO-Display-Black";
+  src: local("Display-Black"),
+    url("./assets/fonts/SF-Pro-Display-Black.otf") format("truetype");
 }
 
 .text-black {
-    font-family: 'SF-PRO-Display-Black';
+  font-family: "SF-PRO-Display-Black";
 }
 
 @font-face {
-    font-family: 'SF-PRO-Display-Bold';
-    src: local('Display-Bold'), url('./assets/fonts/SF-Pro-Display-Bold.otf') format('truetype');
+  font-family: "SF-PRO-Display-Bold";
+  src: local("Display-Bold"),
+    url("./assets/fonts/SF-Pro-Display-Bold.otf") format("truetype");
 }
 
 .text-bold {
-    font-family: 'SF-PRO-Display-Bold';
+  font-family: "SF-PRO-Display-Bold";
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Heavy';
-    src: local('Display-Heavy'), url('./assets/fonts/SF-Pro-Display-Heavy.otf') format('truetype');
+  font-family: "SF-Pro-Display-Heavy";
+  src: local("Display-Heavy"),
+    url("./assets/fonts/SF-Pro-Display-Heavy.otf") format("truetype");
 }
 
 .text-heavy {
-    font-family: 'SF-PRO-Display-Heavy';
+  font-family: "SF-PRO-Display-Heavy";
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Light';
-    src: local('Display-Light'), url('./assets/fonts/SF-Pro-Display-Light.otf') format('truetype');
+  font-family: "SF-Pro-Display-Light";
+  src: local("Display-Light"),
+    url("./assets/fonts/SF-Pro-Display-Light.otf") format("truetype");
 }
 
 .text-light {
-    font-family: 'SF-PRO-Display-Light';
+  font-family: "SF-PRO-Display-Light";
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Medium';
-    src: local('Display-Medium'), url('./assets/fonts/SF-Pro-Display-Medium.otf') format('truetype');
+  font-family: "SF-Pro-Display-Medium";
+  src: local("Display-Medium"),
+    url("./assets/fonts/SF-Pro-Display-Medium.otf") format("truetype");
 }
 
 .text-medium {
-    font-family: 'SF-PRO-Display-Medium';
+  font-family: "SF-PRO-Display-Medium";
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Regular';
-    src: local('Display-Regular'), url('./assets/fonts/SF-Pro-Display-Regular.otf') format('truetype');
+  font-family: "SF-Pro-Display-Regular";
+  src: local("Display-Regular"),
+    url("./assets/fonts/SF-Pro-Display-Regular.otf") format("truetype");
 }
 
 .text-regular {
-    font-family: 'SF-PRO-Display-Regular';
+  font-family: "SF-PRO-Display-Regular";
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Thin';
-    src: local('Display-Thin'), url('./assets/fonts/SF-Pro-Display-Thin.otf') format('truetype');
+  font-family: "SF-Pro-Display-Thin";
+  src: local("Display-Thin"),
+    url("./assets/fonts/SF-Pro-Display-Thin.otf") format("truetype");
 }
 
 .text-thin {
-    font-family: 'SF-PRO-Display-Thin';
+  font-family: "SF-PRO-Display-Thin";
 }
 
 @font-face {
-    font-family: 'SF-Pro-Display-Ultralight';
-    src: local('Display-Ultralight'), url('./assets/fonts/SF-Pro-Display-Ultralight.otf') format('truetype');
+  font-family: "SF-Pro-Display-Ultralight";
+  src: local("Display-Ultralight"),
+    url("./assets/fonts/SF-Pro-Display-Ultralight.otf") format("truetype");
 }
 
 .text-ultralight {
-    font-family: 'SF-PRO-Display-Ultralight';
+  font-family: "SF-PRO-Display-Ultralight";
 }
 
 .vinculo {
-    color: #0D9EBA;
+  color: #0d9eba;
 }
 
 button.my-color,
 button.my-color:focus,
 a.btn.my-color {
-    background-color: #0D9EBA;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
+  background-color: #0d9eba;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 button.my-color:focus,
 button.my-color:focus,
-a.btn.my-color:focus{
-    background-color: #0D9EBA !important;
-    color: white !important;
-    font-weight: bold !important;
-    font-size: 20px !important;
-    box-shadow: 0 .05rem 0.2rem rgba(0, 0, 0, 0.8) !important;
+a.btn.my-color:focus {
+  background-color: #0d9eba !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 20px !important;
+  box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.8) !important;
 }
 
 a.vincle-no-style {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .bg-gray {
-    font-size: 20px;
-    background-color: rgb(233, 232, 232);
+  font-size: 20px;
+  background-color: rgb(233, 232, 232);
 }
 
 button.my-color-gray,
 button.my-color:focus {
-    background-color: rgb(167, 164, 164);
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
+  background-color: rgb(167, 164, 164);
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 input,
@@ -156,42 +164,51 @@ input,
 .btn.focus,
 button:focus,
 select:focus {
-    outline: none !important;
-    box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .error {
-    color: brown;
-    font-size: 14px;
+  color: brown;
+  font-size: 14px;
 }
 
 .toast-class-success {
-    --background: #0D9EBA;
-    --border-color: #067f97;
-    --border-radius: 7px;
-    --border-style: solid;
-    // --border-width:2px;
-    // --button-color:#FFDD00;
-    --box-shadow: 0 .05rem 0.2rem rgba(0, 0, 0, 0.8) !important;
-    --color: #fff;
+  --background: #0d9eba;
+  --border-color: #067f97;
+  --border-radius: 7px;
+  --border-style: solid;
+  // --border-width:2px;
+  // --button-color:#FFDD00;
+  --box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.8) !important;
+  --color: #fff;
 }
 
 .toast-class-error {
-    --background: #FF4127;
-    --border-color: #852114;
-    --border-radius: 1px;
-    --border-style: solid;
-    // --border-width:4px;
-    --box-shadow: 0 .05rem 0.2rem rgba(0, 0, 0, 0.8) !important;
-    --button-color: #FFDD00;
-    --color: #fff;
+  --background: #ff4127;
+  --border-color: #852114;
+  --border-radius: 1px;
+  --border-style: solid;
+  // --border-width:4px;
+  --box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.8) !important;
+  --button-color: #ffdd00;
+  --color: #fff;
 }
 
 .passwordIcon {
-    font-size: 1.5rem !important;
-    position: relative !important;
-    top: 10px !important;
-    margin: 0 auto !important;
-    float: right;
-    color: gray;
+  font-size: 1.5rem !important;
+  position: relative !important;
+  top: 10px !important;
+  margin: 0 auto !important;
+  float: right;
+  color: gray;
 }
+
+#content-loading {
+  position: relative;
+}
+
+// #loading {
+//   left: 25%;
+//   position: absolute;
+// }

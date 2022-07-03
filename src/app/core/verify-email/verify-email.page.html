@@ -7,21 +7,41 @@
 <ion-content *ngIf="user$ | async as user">
   <ion-row>
     <ion-col>
-      <H2>{{ 'VERIFY_PASSWORD.TITLE' | translate }}</H2>
-      <p>{{ 'VERIFY_PASSWORD.TEXT_CONFIRM_EMAIL' | translate }} <strong>{{user.email}}</strong></p>
+      <h2>{{ 'VERIFY_PASSWORD.TITLE' | translate }}</h2>
+      <p>
+        {{ 'VERIFY_PASSWORD.TEXT_CONFIRM_EMAIL' | translate }}
+        <strong>{{user.email}}</strong>
+      </p>
       <p>{{ 'VERIFY_PASSWORD.PLEASE_CHECK_EMAIL' | translate }}</p>
     </ion-col>
   </ion-row>
+
+  <div id="content-loading" *ngIf="loading">
+    <div id="loading" style="margin-left: 25%">
+      <img src="assets/loading.svg" />
+    </div>
+  </div>
+
   <ion-row>
     <ion-col>
-      <ion-button type="submit" color="primary" expand="block" (click)="onSendEmail()">
+      <ion-button
+        type="submit"
+        color="primary"
+        expand="block"
+        (click)="onSendEmail()"
+      >
         {{ 'RESENT_VERIFICATION_EMAIL' | translate }}
       </ion-button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-button type="button" color="primary" expand="block" (click)="navigateToLogin()">
+      <ion-button
+        type="button"
+        color="primary"
+        expand="block"
+        (click)="navigateToLogin()"
+      >
         {{ 'LOGIN' | translate }}
       </ion-button>
     </ion-col>

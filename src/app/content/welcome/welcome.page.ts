@@ -15,6 +15,7 @@ export class WelcomePage implements OnInit {
     private translate: TranslateService,
     private storage: StorageService,
   ) {
+    this.isFirstTimeOnWelcome();
     this.getLanguage();
   }
 
@@ -23,6 +24,16 @@ export class WelcomePage implements OnInit {
   // }
 
   ngOnInit() { }
+
+  isFirstTimeOnWelcome() {
+    this.storage.getString('firstimeonwelcome').then((data: any) => {
+      if (!data.value) {
+        this.storage.setString('firstimeonwelcome', 'true');
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
   getLanguage() {
     this.storage.getString('language').then((data: any) => {

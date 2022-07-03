@@ -36,7 +36,7 @@ export class MailService {
       this.storage.getObject('hbaUser').then((dataUser: any) => {
         let user = JSON.parse(dataUser);
         let urlLocal = 'http://localhost:3000/api/mail';
-        let urlInternet = 'http://18.191.206.117:3000/api/mail'
+        let urlInternet = 'http://3.132.216.154:3000/api/mail';
         return this.http.get(urlInternet, {
           params: {    
             'fullName':user.fullName,
@@ -64,9 +64,9 @@ export class MailService {
             },
             error => {
               if (language === 'en') {
-                this.toastService.displayToastError('RESPONSE', 'Oops, something happened, please check your internet connection or try again later.', 'Close');
+                this.toastService.displayToastError('RESPONSE', 'Oops, something happened, please  try again later.', 'Close');
               } else {
-                this.toastService.displayToastError('RESPUESTA', 'Oops, algo ha ocurrido, compruebe su conexión a internet o inténtelo más tarde.', 'Cerrar');
+                this.toastService.displayToastError('RESPUESTA', 'Oops, algo ha ocurrido, inténtelo más tarde.', 'Cerrar');
               }
             }
           )

@@ -11,7 +11,6 @@ import { MailService } from '../../services/mail.service';
 export class MainscreenPage implements OnInit {
   language: string;
   
-
   constructor(
     private router: Router,
     private translate: TranslateService,

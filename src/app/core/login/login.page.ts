@@ -18,6 +18,7 @@ export class LoginPage implements OnInit {
   isSpanish: boolean;
   form: FormGroup;
   submitted: boolean;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -26,11 +27,11 @@ export class LoginPage implements OnInit {
     private translate: TranslateService,
     private storage: StorageService,
     private toastService: ToastService,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {
     this.isFirsTime();
     this.getLanguage();
-    this.isFirstTimeOnLogin();
+    // this.isFirstTimeOnLogin();
     this.submitted = false;
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,10 +40,9 @@ export class LoginPage implements OnInit {
   }
 
   isFirsTime() {
-    this.storage.getString('firstime').then((data: any) => {
-      if (!data.value) {
-        this.storage.setString('firstime', 'false');
-        this.router.navigate(['/welcome']);
+    this.storage.getString('logged').then((data: any) => {
+      if (data.value) {
+        this.router.navigate(['/mainscreen']);
       }
     });
   }
@@ -61,24 +61,14 @@ export class LoginPage implements OnInit {
     });
   }
 
-  isFirstTimeOnLogin() {
-    this.storage.getString('firstimeonlogin').then((data: any) => {
-      if (!data.value) {
-        this.storage.setString('firstimeonlogin', 'false');
-      } else {
-        this.router.navigate(['/mainscreen']);
-      }
-    });
-  }
-
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
   hideShowPassword() {
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
- 
-  ngOnInit() { }
+
+  ngOnInit() {}
 
   onSelectChange(selectedValue: any) {
     this.language = selectedValue.detail.value;
@@ -87,13 +77,16 @@ export class LoginPage implements OnInit {
     this.isSpanish = this.language === 'en' ? false : true;
   }
 
-  get f() { return this.form.controls }
+  get f() {
+    return this.form.controls;
+  }
 
   async onLogin() {
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
+    this.loading = true;
     var values = this.form.value;
 
     try {
@@ -103,16 +96,33 @@ export class LoginPage implements OnInit {
         this.redirectUser(isVerified, user);
       } else {
         if (this.language === 'en') {
-          this.toastService.displayToastError('RESPONSE', 'Please check your internet connection or login credentials.', 'Close');
+          this.toastService.displayToastError(
+            'RESPONSE',
+            'Please check your login credentials.',
+            'Close'
+          );
         } else {
-          this.toastService.displayToastError('RESPUESTA', 'Por favor verifique su conexión a internet o sus credenciales de autenticación.', 'Cerrar');
+          this.toastService.displayToastError(
+            'RESPUESTA',
+            'Por favor verifique sus credenciales de autenticación.',
+            'Cerrar'
+          );
         }
+        this.loading = false;
       }
     } catch (error) {
       if (this.language === 'en') {
-        this.toastService.displayToastError('RESPONSE', 'Oops, something happened, please check your internet connection or try again later.', 'Close');
+        this.toastService.displayToastError(
+          'RESPONSE',
+          'Oops, something happened, please try again later.',
+          'Close'
+        );
       } else {
-        this.toastService.displayToastError('RESPUESTA', 'Oops, algo ha ocurrido, compruebe su conexión a internet o inténtelo más tarde.', 'Cerrar');
+        this.toastService.displayToastError(
+          'RESPUESTA',
+          'Oops, algo ha ocurrido, inténtelo más tarde.',
+          'Cerrar'
+        );
       }
     }
   }
@@ -124,25 +134,29 @@ export class LoginPage implements OnInit {
         if (res.value) {
           uid = res.value;
           this.storage.getObject('hbaUser').then((dataUser: any) => {
-            let user = JSON.parse(dataUser);            
+            let user = JSON.parse(dataUser);
             const data: UserI = {
               uid: uid,
               email: user.email,
               fullName: user.fullName,
-              mobileNumber: user.mobileNumber
+              mobileNumber: user.mobileNumber,
             };
             this.auth2Service.addUser(data);
+            this.storage.setString('logged', 'true');
+            this.loading = false;
             this.router.navigate(['/mainscreen']);
           });
         } else {
           //todo hay que ir a firebase y encontrar ese usuario con ese uid
           this.auth2Service.findUser(user.uid);
+          this.storage.setString('logged', 'true');
+          this.loading = false;
           this.router.navigate(['/mainscreen']);
         }
       });
     } else {
+      this.loading = false;
       this.router.navigate(['/verify-email']);
     }
   }
-
 }

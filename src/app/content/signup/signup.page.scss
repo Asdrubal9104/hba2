@@ -16,7 +16,7 @@ ion-content#signup{
             margin-right: 10px;
         } 
         .content-body-dark{
-            margin-top: 10px;
+            // margin-top: 10px;
             position: relative;
             height: 200px;
             background-color: rgb(245, 247, 249);
@@ -35,7 +35,15 @@ ion-content#signup{
         .content-form{
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30px;
+            margin-top: 10px;
+        }
+        form{
+            ion-item{
+                margin-top: -10px;
+            }
+            .boton-signup{
+                margin-top: 5px;
+            }
         }
     }
 
@@ -60,7 +68,7 @@ ion-content#signup{
     // }
     .row.boton-signup{
         margin: auto;
-        width: 95%;
+        // width: 95%;
     }
     // ion-list{
     //     background-color: rgb(245, 247, 249);

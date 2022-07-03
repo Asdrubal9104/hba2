@@ -15,25 +15,38 @@ export class SignupPage implements OnInit {
   isSpanish: boolean;
   form: FormGroup;
   submitted: boolean;
+  loading: boolean = false;
 
   constructor(
     private translate: TranslateService,
     private storage: StorageService,
     private formBuilder: FormBuilder,
     private auth2Service: Auth2Service,
-    private router: Router,
+    private router: Router
   ) {
     this.getLanguage();
     this.submitted = false;
-    this.form = this.formBuilder.group({
-      fullName: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      repeatPassword: ['', [Validators.required]],
-    }, {
-      validator: this.confirmedPasswordValidator('password', 'repeatPassword')
-    });
+    this.form = this.formBuilder.group(
+      {
+        fullName: ['', [Validators.required]],
+        mobileNumber: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
+          ],
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        repeatPassword: ['', [Validators.required]],
+      },
+      {
+        validator: this.confirmedPasswordValidator(
+          'password',
+          'repeatPassword'
+        ),
+      }
+    );
   }
 
   // this function validate that password and repeat password match
@@ -41,7 +54,10 @@ export class SignupPage implements OnInit {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
-      if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
+      if (
+        matchingControl.errors &&
+        !matchingControl.errors.confirmedValidator
+      ) {
         return;
       }
       if (control.value !== matchingControl.value) {
@@ -49,16 +65,19 @@ export class SignupPage implements OnInit {
       } else {
         matchingControl.setErrors(null);
       }
-    }
+    };
   }
 
-  get f() { return this.form.controls }
+  get f() {
+    return this.form.controls;
+  }
 
   register() {
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
+    this.loading = true;
     var values = this.form.value;
     this.onRegister(values.email, values.password, values);
   }
@@ -72,18 +91,19 @@ export class SignupPage implements OnInit {
         var data = {
           fullName: values.fullName,
           mobileNumber: values.mobileNumber,
-          email: values.email
-        }
+          email: values.email,
+        };
         this.saveUser(user.uid, data);
+        this.loading = false;
         this.redirectUser(isVerified);
       }
-    }
-    catch (error) {
+    } catch (error) {
+      this.loading = false;
       console.log('Error-->', error);
     }
   }
 
-  saveUser(uid: string, values: any) {   
+  saveUser(uid: string, values: any) {
     this.storage.setObject('hbaUid', uid);
     this.storage.setObject('hbaUser', JSON.stringify(values));
   }
@@ -96,7 +116,7 @@ export class SignupPage implements OnInit {
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   getLanguage() {
     this.storage.getString('language').then((data: any) => {
@@ -104,7 +124,7 @@ export class SignupPage implements OnInit {
         this.language = data.value;
         this.translate.setDefaultLang(this.language);
       } else {
-        this.language = 'en';        
+        this.language = 'en';
         this.storage.setString('language', this.language);
         this.translate.setDefaultLang(this.language);
       }

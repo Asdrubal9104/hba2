@@ -14,13 +14,14 @@ import { ToastService } from 'src/app/services/toast.service';
 export class VerifyEmailPage implements OnDestroy {
   user$: Observable<User> = this.authSvc.afAuth.user;
   language: string;
+  loading: boolean = false;
 
   constructor(
     private authSvc: AuthService,
     private translate: TranslateService,
     private storage: StorageService,
     private router: Router,
-    private toastService: ToastService,
+    private toastService: ToastService
   ) {
     this.getLanguage();
   }
@@ -45,19 +46,42 @@ export class VerifyEmailPage implements OnDestroy {
   }
 
   async onSendEmail(): Promise<void> {
+    this.loading = true;
     try {
       await this.authSvc.sendVerificationEmail();
-    }
-    catch (error) {
+      this.loading = false;
       if (this.language === 'en') {
-        this.toastService.displayToastError('RESPONSE', 'Oops, something happened, please check your internet connection or try again later.', 'Close');
+        this.toastService.displayToastSuccess(
+          'RESPONSE',
+          'We have resent a confirmation message to your email.',
+          'Close'
+        );
       } else {
-        this.toastService.displayToastError('RESPUESTA', 'Oops, algo ha ocurrido, compruebe su conexión a internet o inténtelo más tarde.', 'Cerrar');
+        this.toastService.displayToastSuccess(
+          'RESPUESTA',
+          'Hemos reenviado un mensaje de confirmación a su correo.',
+          'Cerrar'
+        );
+      }
+    } catch (error) {
+      this.loading = false;
+      if (this.language === 'en') {
+        this.toastService.displayToastError(
+          'RESPONSE',
+          'Oops, something happened, please try again later.',
+          'Close'
+        );
+      } else {
+        this.toastService.displayToastError(
+          'RESPUESTA',
+          'Oops, algo ha ocurrido, inténtelo más tarde.',
+          'Cerrar'
+        );
       }
     }
   }
 
-  navigateToLogin(){
+  navigateToLogin() {
     this.router.navigate(['login']);
   }
 

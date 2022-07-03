@@ -1,78 +1,83 @@
-ion-content#welcome{
-    position: relative;
-    // --background: #fff url('../../../assets/img/welcome/001_with_logo.svg') no-repeat center top / cover;
-    // margin-top: 50px;
-    // width: 100%;
+ion-content#welcome {
+  position: relative;
+  // --background: #fff url('../../../assets/img/welcome/001_with_logo.svg') no-repeat center top / cover;
+  // margin-top: 50px;
+  // width: 100%;
+  // height: 100vh;
+  ion-grid {
+    padding: 0;
+  }
+  img.right {
+    position: absolute;
+    right: -10px;
+    width: 130px;
+  }
+  img.left {
+    position: absolute;
+    left: -20px;
+    top: 40px;
+    width: 70px;
+  }
+  .content-logo {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    img.logo {
+      width: 170px;
+    }
+  }
+  .simulate-canvas {
     // height: 100vh;
-    ion-grid{
-        padding: 0;
+    img.canvas {
+      position: absolute;
     }
-    img.right{
-        position: absolute;
-        right: -10px;
-        width: 130px;
-    }
-    img.left{
-        position: absolute;
-        left: -20px;
-        top: 40px;
-        width: 70px;
-    }
-    .content-logo{
-        margin-top: 10px;
-        margin-bottom: 50px;
-        img.logo{
-            width: 170px;
-        }
-    }
-    .simulate-canvas{
-        height: calc(100vh - 150px);
-       img.canvas{
-           position: absolute; 
-       }
-    }
-    .text-body-welcome p{
-        width: 95%;
-    }
+  }
+  .text-body-welcome p {
+    width: 95%;
+  }
 }
 
-// .no-scroll{
-//     overflow: hidden;
-// }
+.row-button-start {
+  position: absolute;
+  bottom: 5px;
+  width: 96%;
+  left: 2%;
+}
 
-#welcome{   
-    .row-welcome{
-        overflow: auto;        
-        p.text-p{
-            margin-bottom: 5px;
-        }
-    } 
-    .select-language{
-        float: right;        
+#welcome {
+  .row-welcome {
+    overflow: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    p.text-p {
+      margin-bottom: 5px;
     }
-    .col img {
-        max-height: 100%;
-        max-width: 100%;
-        display: block;
-        margin: auto;
-      }
-    .logo-welcome{
-        width: 65%;
-        height: auto;
-        margin: auto;
+  }
+  .select-language {
+    float: right;
+  }
+  .col img {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+  }
+  .logo-welcome {
+    width: 65%;
+    height: auto;
+    margin: auto;
+  }
+  .title1 {
+    font-weight: bold;
+    color: darkslategrey;
+    &.title-welcome {
+      text-align: center;
     }
-    .title1{
-        font-weight: bold;
-        color: darkslategrey;
-        &.title-welcome{
-            text-align: center;
-        }
-    }
-    p{
-        color: darkslategrey;
-    }
-    .need-introduction{
-        font-weight: bold;
-        color: #0D9EBA;
-    }
+  }
+  p {
+    color: darkslategrey;
+  }
+  .need-introduction {
+    font-weight: bold;
+    color: #0d9eba;
+  }
 }
